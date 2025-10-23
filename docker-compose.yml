@@ -731,11 +731,10 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Etc/UTC
-      - WHISPER_MODEL=medium-int8 #models to choose from: 
-      # https://github.com/SYSTRAN/faster-whisper/blob/master/faster_whisper/utils.py#L12-L31
-      # - LOCAL_ONLY= #optional
-      - WHISPER_BEAM=3 #optional
-      # - WHISPER_LANG=en #optional
+      - WHISPER_MODEL=${WHISPER_MODEL} 
+      - LOCAL_ONLY=${WHISPER_LOCAL_ONLY}
+      - WHISPER_BEAM=${WHISPER_BEAM} 
+      - WHISPER_LANG=${WHISPER_LANG}
     volumes:
       - faster-whisper_data:/config
     ports:
