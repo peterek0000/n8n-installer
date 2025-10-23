@@ -253,6 +253,20 @@ if is_profile_active "paddleocr"; then
   echo "Notes: PaddleX Basic Serving (CPU), pipeline=OCR"
 fi
 
+if is_profile_active "faster-whisper"; then
+  echo
+  echo "============================= FasterWhisper ==========================="
+  echo
+  echo "Model: ${WHISPER_MODEL:-<not_set_in_env>}"
+  echo "Beam size: ${WHISPER_BEAM:-<not_set_in_env>}"
+  echo "Language override: ${WHISPER_LANG:-<auto_detect>}"
+  echo "Local only: ${LOCAL_ONLY:-<not_set_in_env>}"
+  echo "Host: ${FASTERWHISPER_HOSTNAME:-<hostname_not_set>}"
+  echo "API (internal): http://faster-whisper:10300"
+  echo "Docs: https://docs.linuxserver.io/images/docker-faster-whisper/"
+  echo "Notes: REST API for transcription, supports auto language detection and GPU acceleration"
+fi
+
 if is_profile_active "python-runner"; then
   echo
   echo "================================= Python Runner ========================"
