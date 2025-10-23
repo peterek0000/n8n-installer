@@ -734,7 +734,7 @@ services:
       - WHISPER_MODEL=medium-int8 #models to choose from: 
       # https://github.com/SYSTRAN/faster-whisper/blob/master/faster_whisper/utils.py#L12-L31
       # - LOCAL_ONLY= #optional
-      # - WHISPER_BEAM=3 #optional
+      - WHISPER_BEAM=3 #optional
       # - WHISPER_LANG=en #optional
     volumes:
       - faster-whisper_data:/config
