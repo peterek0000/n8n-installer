@@ -3,6 +3,7 @@ volumes:
   caddy-data:
   comfyui_data:
   flowise:
+  faster-whisper_data:
   grafana:
   langfuse_clickhouse_data:
   langfuse_clickhouse_logs:
@@ -730,12 +731,13 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Etc/UTC
-      - WHISPER_MODEL=tiny-int8
-      - LOCAL_ONLY= #optional
-      - WHISPER_BEAM=1 #optional
+      - WHISPER_MODEL=medium-int8 #models to choose from: 
+      # https://github.com/SYSTRAN/faster-whisper/blob/master/faster_whisper/utils.py#L12-L31
+      # - LOCAL_ONLY= #optional
+      - WHISPER_BEAM=3 #optional
       - WHISPER_LANG=en #optional
     volumes:
-      - /path/to/faster-whisper/data:/config
+      - faster-whisper_data:/config
     ports:
       - 10300:10300
     restart: unless-stopped
